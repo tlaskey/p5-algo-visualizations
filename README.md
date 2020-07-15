@@ -5,4 +5,4 @@ A repository containing p5.js sketches that visualize various sorting algorithms
 # Example
 ## Bubble Sort Visualization with lines
 
-![](./visualizations/BubbleSort.gif)
+![](./visualizations/BubbleSortRects30FPS.gif)

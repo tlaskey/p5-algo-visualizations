@@ -1,31 +1,40 @@
-let values = []
+let values = [];
 
 let i = 0;
+let j = 0;
+
+const widthRect = 25;
 
 function setup() {
-    createCanvas(800, 500);
-    for (let i = 0; i < width; i++) {
+    createCanvas(750, 500);
+    frameRate(30);
+    for (let i = 0; i < width / widthRect; i++) {
         values[i] = random(height);
     }
 }
 
 function draw() {
-    background(0);
+    background('cyan');
 
     if (i < values.length) {
-        for (let j = 0; j < values.length - i - 1; j++) {
+        if (j < values.length - i - 1) {
             if (values[j] > values[j + 1]) swap(values, j, j + 1);
+            j++;
+        }
+        else {
+            i++;
+            j = 0;
         }
     }
     else {
         print("finished!");
         noLoop();
     }
-    i++;
 
+    console.log('drawing...')
     for (let i = 0; i < values.length; i++) {
-        stroke(255);
-        line(i, 0, i, values[i]);
+        stroke(0, 0, 0);
+        rect(i * widthRect, height - values[i], widthRect, values[i])
     }
 }
 
